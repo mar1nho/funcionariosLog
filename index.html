@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor</title>
+</head>
+<body>
+    <header>iNox Engenharia</header>
+    <main>
+        <div class='title'>
+            <h2>Funcionários</h2>
+            <span>Lista de Funcionários da Padaria</span>
+        </div>
+
+        <div class="card">
+            <div class="lineInput">
+                <label>Funcionário</label>
+                <input type="text" id="funcionario" placeholder="Nome do funcionário">
+            </div>
+
+            <div class="lineInput">
+                <label>Número de Registo</label>
+                <input type="text" id="regId" placeholder="Número do ID">
+            </div>
+
+            <div class="lineInput">
+                <label>Salário</label>
+                <input type="number" id="salario" placeholder="Digite o valor do salário">
+            </div>
+            <div class="lineInput">
+                <label>Cargo</label>
+                <input type="text" id="cargo" placeholder="Cargo Atual">
+            </div>
+            <button id="btn-1" onclick="funcionarios.salvar()">Salvar</button>
+            <button>Cancelar</button>
+        </div>
+
+        <div class="content">
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Funcionário</th>
+                        <th>Salário</th>
+                        <th>Cargo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

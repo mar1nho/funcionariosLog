@@ -1,0 +1,84 @@
+*{
+    margin: 0
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    width: 50rem;
+    margin: auto;
+}
+header{
+    background-color: #1C1C1C;
+    color: whitesmoke;
+    padding: 2rem;
+    border: 5px inset #696969;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2rem;
+    box-shadow: 0.5px 1px 10px 2px black;
+    transform: translate(-0%, 10.4%);
+}
+
+main{
+    padding: 30px 50px;
+    width: 85%;
+    background-color: #C0C0C0;
+    margin: auto;
+    border: 10px inset #D3D3D3;
+    box-shadow: 0.5px 1px 10px 2px black;
+    transform: translate(-0%, 2.4%);
+}
+label{
+    padding-bottom: 0.2rem;
+
+}
+input{
+    padding: 10px;
+    border: 1px solid #ccc;;
+    border-radius: 3px;
+    outline: 0;
+}
+
+button{
+    border: 0px;
+    padding: 10px;
+    background-color: #1C1C1C;
+    color: whitesmoke;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all ease 0.5s;
+}
+button:hover{
+    background-color: #4F4F4F;
+}
+table{
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    width: 100%;
+}
+table th{
+    background-color: #363636;
+    color: whitesmoke;
+}
+table th, td{
+    padding: 1px 5px;
+    text-align: center;
+}
+.card{
+    background-color:#D3D3D3;
+    border: 1px solid #747171;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+}
+.lineInput{
+    display: grid;
+    margin-bottom: 15px;
+}
+.content{
+    margin-top: 15px;
+}
+.title{
+    text-align: center;
+}
+
