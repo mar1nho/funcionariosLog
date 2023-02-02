@@ -63,11 +63,13 @@ class Funcionarios {
         }
     
     novoFuncionario(){
+        let btn = document.getElementById('btn-1')
         let input = document.querySelectorAll("input.form-control");   
                     for (let i = 0; i <  input.length; i++){
                 document.getElementById("regId").value = " "
-                input[i].value = " "
+                input[i].value = ""
                 input[i].removeAttribute('readonly')
+                btn.disabled = false;
             }
             this.cancelar()
             this.listaTabela();
@@ -80,20 +82,21 @@ class Funcionarios {
         document.getElementById('regId').placeholder = ''
     }
     
-    validaCampos(funcionarios){let msg = '';
-    if(funcionarios.nomeFuncionario == ''){
-        msg += 'Informe o nome do funcionário \n'
-        document.getElementById('regId').value = " "
-    }
-    if(funcionarios.registro == ''){
-        msg += 'Informe o número de resgistro \n'
-        document.getElementById('funcionario').value = " "
-    }
-    if (msg != ''){
-        alert(msg)
-        return false;
-    }
-    return true;
+    validaCampos(funcionarios){
+        let msg = '';
+        if(funcionarios.nomeFuncionario === ''){
+            msg += 'Informe o nome do funcionário \n'
+            document.getElementById('regId').value = " "
+        }
+        if(funcionarios.registro === ''){
+            msg += 'Informe o número de resgistro \n'
+            document.getElementById('funcionario').value = " "
+        } 
+        if (msg != ''){     
+            alert(msg)
+            return false;
+        }
+        return true;
 }
 
     cancelar(){
@@ -110,6 +113,7 @@ class Funcionarios {
         let regId = document.getElementById('regId').value;
         let func = document.getElementById('funcionario')
         let sal = document.getElementById('salario')
+        let btn = document.getElementById('btn-1')
         let car = document.getElementById('cargo')
         let found = false;
             for (let i = 0; i < this.arrayFuncionarios.length; i++) {
@@ -119,6 +123,7 @@ class Funcionarios {
                     car.value = this.arrayFuncionarios[i].cargo;
                         func.readOnly = true;
                         sal.readOnly = true;
+                        btn.disabled = true;
                         car.readOnly = true;    
                             found = true;
                             break;

@@ -50,6 +50,7 @@ button{
 }
 button:hover{
     background-color: #4F4F4F;
+    cursor: pointer;
 }
 table{
     border-collapse: collapse;
