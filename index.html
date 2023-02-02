@@ -39,7 +39,14 @@
             </div>
             <div class="lineInput">
                 <label>Cargo</label>
-                <input type="text" class="form-control" readonly='true' id="cargo" >
+                <select type="text" class="form-control" readonly='true' id="cargo">
+                        <option>Construtor Civil</option>
+                        <option>Gerente de Obras</option>
+                        <option>Assistente de Obras</option>
+                        <option>Eletricista</option>
+                        <option>Especialista em Encanação</option>
+                        <option>Coordernador de Obras</option>
+                </select>
             </div>
             <button id="btn-1" onclick="funcionarios.salvar()">Salvar</button>
             <button onclick="funcionarios.cancelar()">Cancelar</button>

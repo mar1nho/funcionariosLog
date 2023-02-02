@@ -107,4 +107,7 @@ table td img{
     margin-left: 15rem;
     background-color: #747171;
 }
-
+#cargo{
+    border: 2px outset;
+    pointer-events:all;
+}
