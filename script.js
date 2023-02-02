@@ -15,6 +15,7 @@ class Funcionarios {
           }
           console.log(this.arrayFuncionarios);
         }
+        this.cancelar()
         this.listaTabela();
       }
 
@@ -43,31 +44,41 @@ class Funcionarios {
             let td_registro = tr.insertCell();
             let td_salario = tr.insertCell();
             let td_cargo = tr.insertCell();
+            let td_acoes = tr.insertCell();
 
             td_id.innerText = this.arrayFuncionarios[i].id;
             td_funcionario.innerText = this.arrayFuncionarios[i].nomeFuncionario; 
             td_registro.innerText = this.arrayFuncionarios[i].registro; 
             td_salario.innerText = this.arrayFuncionarios[i].salario; 
             td_cargo.innerText = this.arrayFuncionarios[i].cargo; 
+
+            
+            let imgEdit = document.createElement('img')
+                imgEdit.src = "img/edit.png"
+                td_acoes.appendChild(imgEdit)
+
+            let imgDelete = document.createElement('img')
+            imgDelete.src = "img/excluir.png"
+            td_acoes.appendChild(imgDelete)
         }
     }
     
     
     adicionar(funcionarios){
-        funcionarios.salario = parseFloat(funcionarios.salario)
+        funcionarios.salario = funcionarios.salario
         this.arrayFuncionarios.push(funcionarios)
         this.id++;
+        document.getElementById('regId').placeholder = ''
     }
     
-    
-    
-    
-    validaCampos(){let msg = '';
-    if(funcionarios.funcionario == ''){
-        msg += 'Informe o nome do produto \n'
+    validaCampos(funcionarios){let msg = '';
+    if(funcionarios.nomeFuncionario == ''){
+        msg += 'Informe o nome do funcionário \n'
+        document.getElementById('regId').value = " "
     }
     if(funcionarios.registro == ''){
-        msg += 'Informe o preço do produto \n'
+        msg += 'Informe o número de resgistro \n'
+        document.getElementById('funcionario').value = " "
     }
     if (msg != ''){
         alert(msg)
@@ -76,10 +87,45 @@ class Funcionarios {
     return true;
 }
 
+    cancelar(){
+        document.getElementById('funcionario').value = ''
+        document.getElementById('regId').value = ''
+        document.getElementById('salario').value = ''
+        document.getElementById('cargo').value = ''
+        document.getElementById('regId').placeholder = ''
+        this.editId =  null;
+ }
+
+ buscar() {
+    let regId = document.getElementById('regId').value;
+    let func = document.getElementById('funcionario')
+    let sal = document.getElementById('salario')
+    let car = document.getElementById('cargo')
+    let found = false;
+        for (let i = 0; i < this.arrayFuncionarios.length; i++) {
+            if (this.arrayFuncionarios[i].registro == regId) {
+                func.value = this.arrayFuncionarios[i].nomeFuncionario;
+                sal.value = this.arrayFuncionarios[i].salario;
+                car.value = this.arrayFuncionarios[i].cargo;
+                    func.readOnly = true;
+                    sal.readOnly = true;
+                    car.readOnly = true;    
+                        found = true;
+                        break;
+                }
+            }
+                if (!found) {
+                    document.getElementById('regId').placeholder = 'Digite o registro do funcionário'
+                    
+                }
+            }
+
+
+
+
 
     atualizar(){}
     preparaEditacao(){}
-    cancelar(){}
     deletar(){} }
     
 let funcionarios = new Funcionarios()
