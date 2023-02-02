@@ -33,7 +33,7 @@ class Funcionarios {
 
     listaTabela(){
         let tbody = document.getElementById('tbody')
-        tbody.innerText = ' ';
+        tbody.innerText = '';
         for(let i = 0; i < this.arrayFuncionarios.length; i++){
 
             let tr = tbody.insertRow();
