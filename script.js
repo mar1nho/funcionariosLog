@@ -28,7 +28,7 @@ class Funcionarios {
             funcionarios.id = this.id
             funcionarios.nomeFuncionario = document.getElementById('funcionario').value;
             funcionarios.registro = document.getElementById('regId').value
-            funcionarios.salario = document.getElementById('salario').value;
+            funcionarios.salario = document.getElementById('salario').value
             funcionarios.cargo = document.getElementById('cargo').value;
         return funcionarios;
     }
@@ -49,8 +49,8 @@ class Funcionarios {
                 td_id.innerText = this.arrayFuncionarios[i].id;
                 td_funcionario.innerText = this.arrayFuncionarios[i].nomeFuncionario; 
                 td_registro.innerText = this.arrayFuncionarios[i].registro; 
-                td_salario.innerText = this.arrayFuncionarios[i].salario; 
-                td_cargo.innerText = this.arrayFuncionarios[i].cargo; 
+                td_salario.innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.arrayFuncionarios[i].salario); 
+                td_cargo.innerText = this.arrayFuncionarios[i].cargo; ;
 
                 let imgEdit = document.createElement('img')
                     imgEdit.src = "img/edit.png"
@@ -77,7 +77,9 @@ class Funcionarios {
         const numbers = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
         return letter + numbers;
     }
-    document.getElementById('regId').value = gerarRegAleatorio()
+    let randomReg = document.getElementById('regId')
+        randomReg.value = gerarRegAleatorio()
+        randomReg.readOnly = true
         btn.disabled = false;
      }
 
@@ -113,6 +115,8 @@ class Funcionarios {
         document.getElementById('regId').placeholder = ''
         document.getElementById('added').innerText = ''
         this.editId =  null;
+        let randomReg = document.getElementById('regId')
+        randomReg.readOnly = false;
  }
 
     buscar() {
@@ -122,6 +126,7 @@ class Funcionarios {
         let btn = document.getElementById('btn-1')
         let car = document.getElementById('cargo')
         let found = false;
+        randomReg.readOnly = false;
             for (let i = 0; i < this.arrayFuncionarios.length; i++) {
                 if (this.arrayFuncionarios[i].registro == regId) {
                     func.value = this.arrayFuncionarios[i].nomeFuncionario;
