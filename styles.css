@@ -101,4 +101,9 @@ table td img{
     margin-left: 40rem;
     display: inline-block;
 }
+#added{
+    display: inline-block;
+    margin-left: 15rem;
+    background-color: #747171;
+}
 

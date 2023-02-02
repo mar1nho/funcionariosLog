@@ -10,7 +10,6 @@ class Funcionarios {
         if (this.validaCampos(funcionarios)) {
           if (this.editId == null) {
             this.adicionar(funcionarios);
-            
             let inputs = document.querySelectorAll("input.form-control");
                 for (let i = 0; i <  inputs.length; i++){
                 inputs[i].readOnly = true;
@@ -65,11 +64,13 @@ class Funcionarios {
     
     novoFuncionario(){
         let input = document.querySelectorAll("input.form-control");   
-            for (let i = 0; i <  input.length; i++){
+                    for (let i = 0; i <  input.length; i++){
                 document.getElementById("regId").value = " "
                 input[i].value = " "
                 input[i].removeAttribute('readonly')
             }
+            this.cancelar()
+            this.listaTabela();
     }
 
     adicionar(funcionarios){
@@ -101,6 +102,7 @@ class Funcionarios {
         document.getElementById('salario').value = ''
         document.getElementById('cargo').value = ''
         document.getElementById('regId').placeholder = ''
+        document.getElementById('added').innerText = ''
         this.editId =  null;
  }
 
