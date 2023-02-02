@@ -10,6 +10,10 @@ class Funcionarios {
         if (this.validaCampos(funcionarios)) {
           if (this.editId == null) {
             this.adicionar(funcionarios);
+            let inputs = document.querySelectorAll("input.form-control");
+                for (let i = 0; i <  inputs.length; i++){
+                inputs[i].readOnly = true;
+                }
           } else {
             alert('Deu erro');
           }
@@ -27,11 +31,9 @@ class Funcionarios {
             funcionarios.registro = document.getElementById('regId').value;
             funcionarios.salario = document.getElementById('salario').value;
             funcionarios.cargo = document.getElementById('cargo').value;
-
+                
         return funcionarios;
     }
-
-
     listaTabela(){
         let tbody = document.getElementById('tbody')
         tbody.innerText = '';
@@ -63,7 +65,16 @@ class Funcionarios {
         }
     }
     
-    
+    novoFuncionario(){
+        let input = document.querySelectorAll("input.form-control");   
+            for (let i = 0; i <  input.length; i++){
+                document.getElementById("regId").value = " "
+                input[i].value = " "
+                input[i].removeAttribute('readonly')
+                this.validaCampos(input)
+            }
+    }
+
     adicionar(funcionarios){
         funcionarios.salario = funcionarios.salario
         this.arrayFuncionarios.push(funcionarios)
@@ -127,7 +138,9 @@ class Funcionarios {
     atualizar(){}
     preparaEditacao(){}
     deletar(){} }
+
     
 let funcionarios = new Funcionarios()
 
 console.log(funcionarios)
+

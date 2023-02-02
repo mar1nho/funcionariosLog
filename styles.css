@@ -84,4 +84,21 @@ table td img{
 .title{
     text-align: center;
 }
+#btn-2{
+    background-image:url(img/add.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 1rem 1rem;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+#btn-2:focus{ 
+    background-color: rgb(110, 110, 110);
+    box-shadow: inset 2px 2px 2px 2px black;
+}
+#btn-2_span{
+    margin-left: 40rem;
+    display: inline-block;
+}
 

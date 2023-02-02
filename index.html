@@ -16,12 +16,16 @@
         <div class='title'>
             <h2>Funcionários</h2>
             <span>Lista de Funcionários da Padaria</span>
-        </div>
+            </div>
+            <span id="btn-2_span">
+                <button id="btn-2" onclick="funcionarios.novoFuncionario()"></button>
+            </span>   
+        
 
         <div class="card">
             <div class="lineInput">
                 <label>Funcionário</label>
-                <input type="text" id="funcionario">
+                <input type="text" readonly class="form-control" id="funcionario">
             </div>
 
             <div class="lineInput">
@@ -31,11 +35,11 @@
 
             <div class="lineInput">
                 <label>Salário</label>
-                <input type="number" id="salario">
+                <input type="number"class="form-control" readonly="true" id="salario">
             </div>
             <div class="lineInput">
                 <label>Cargo</label>
-                <input type="text" id="cargo" >
+                <input type="text" class="form-control" readonly='true' id="cargo" >
             </div>
             <button id="btn-1" onclick="funcionarios.salvar()">Salvar</button>
             <button onclick="funcionarios.cancelar()">Cancelar</button>
