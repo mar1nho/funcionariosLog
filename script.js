@@ -17,8 +17,8 @@ class Funcionarios {
             } else {
                 alert('Deu erro');
         }
-            console.log(this.arrayFuncionarios);
     }
+            console.log(this.arrayFuncionarios);
             this.cancelar()
             this.listaTabela();
 }
@@ -27,7 +27,7 @@ class Funcionarios {
         let funcionarios = {}
             funcionarios.id = this.id
             funcionarios.nomeFuncionario = document.getElementById('funcionario').value;
-            funcionarios.registro = document.getElementById('regId').value;
+            funcionarios.registro = document.getElementById('regId').value
             funcionarios.salario = document.getElementById('salario').value;
             funcionarios.cargo = document.getElementById('cargo').value;
         return funcionarios;
@@ -61,19 +61,23 @@ class Funcionarios {
                     td_acoes.appendChild(imgDelete)
             }
         }
-    
+    gerarRegAleatorio() {
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const letter = letters[Math.floor(Math.random() * letters.length)];
+            const numbers = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            return letter + numbers;
+          }
     novoFuncionario(){
         let btn = document.getElementById('btn-1')
         let input = document.querySelectorAll("input.form-control");   
-                    for (let i = 0; i <  input.length; i++){
-                document.getElementById("regId").value = " "
-                input[i].value = ""
-                input[i].removeAttribute('readonly')
-                btn.disabled = false;
-            }
+        for (let i = 0; i <  input.length; i++){
+            input[i].value = ""
+            input[i].removeAttribute('readonly')
+        }   
+        btn.disabled = false;
             this.cancelar()
-            this.listaTabela();
-    }
+            this.listaTabela(); 
+     }
 
     adicionar(funcionarios){
         funcionarios.salario = funcionarios.salario
@@ -131,18 +135,23 @@ class Funcionarios {
                 }
                     if (!found) {
                         document.getElementById('regId').placeholder = 'Digite o registro do funcionário'
-                        
+                        alert(`Não foi encontrado nenhum funcionário com o registro ${regId}`)
                     }
                 }
+            }       
+
+        
 
 
-
-
-
-atualizar(){}
+/*atualizar(){}
 preparaEditacao(){}
-deletar(){} }
-
-let funcionarios = new Funcionarios()
+deletar(){} */
+/*function gerarRegAleatorio() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const letter = letters[Math.floor(Math.random() * letters.length)];
+    const numbers = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+    return letter + numbers;
+  }*/
+let funcionarios = new Funcionarios()   
 console.log(funcionarios)
-
+console.log(funcionarios.registroRandom)
