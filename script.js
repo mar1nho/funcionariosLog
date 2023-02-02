@@ -61,12 +61,6 @@ class Funcionarios {
                     td_acoes.appendChild(imgDelete)
             }
         }
-    gerarRegAleatorio() {
-            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const letter = letters[Math.floor(Math.random() * letters.length)];
-            const numbers = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
-            return letter + numbers;
-          }
     novoFuncionario(){
         let btn = document.getElementById('btn-1')
         let input = document.querySelectorAll("input.form-control");   
@@ -74,9 +68,17 @@ class Funcionarios {
             input[i].value = ""
             input[i].removeAttribute('readonly')
         }   
+        this.cancelar()
+        this.listaTabela(); 
+    
+    function gerarRegAleatorio() {
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const letter = letters[Math.floor(Math.random() * letters.length)];
+        const numbers = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+        return letter + numbers;
+    }
+    document.getElementById('regId').value = gerarRegAleatorio()
         btn.disabled = false;
-            this.cancelar()
-            this.listaTabela(); 
      }
 
     adicionar(funcionarios){
